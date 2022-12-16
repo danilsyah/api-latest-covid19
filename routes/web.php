@@ -16,3 +16,11 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('/key', function(){
+    return \Illuminate\Support\Str::random(32);
+});
+
+$router->get('/latest_covid_data', '\App\Http\Controllers\CovidDataController@latest_covid_data');
+$router->get('/top_twenty_covid_case', '\App\Http\Controllers\CovidDataController@top_twenty_covid_case');
+$router->get('/get_countries', '\App\Http\Controllers\CovidDataController@get_countries');

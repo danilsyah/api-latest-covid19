@@ -23,9 +23,11 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-// $app->withFacades();
+$app->withFacades(); // uncomment
 
 // $app->withEloquent();
+
+$app->configure('swagger-lume'); // swagger documentation
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +82,7 @@ $app->configure('app');
 //     'auth' => App\Http\Middleware\Authenticate::class,
 // ]);
 
+
 /*
 |--------------------------------------------------------------------------
 | Register Service Providers
@@ -90,6 +93,7 @@ $app->configure('app');
 | totally optional, so you are not required to uncomment this line.
 |
 */
+$app->register(\SwaggerLume\ServiceProvider::class); // Register swagger documentation service provider
 
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
